@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+
 import { FotostranaCta } from '@/components/FotostranaCta';
+import { ShareBlock } from '@/components/ShareBlock';
 import { SymbolSearch } from '@/components/SymbolSearch';
 import { loadArticles } from '@/lib/content';
 
@@ -21,6 +23,12 @@ export default async function SonnikIndexPage() {
       <p className="lead">
         Найдите образ из сна. Список будет расти по мере добавления статей.
       </p>
+      <div className="page-inline-share">
+        <ShareBlock
+          sharePath="/sonnik"
+          title="Сонник — все символы"
+        />
+      </div>
       <SymbolSearch articles={sorted} />
       <FotostranaCta />
     </main>

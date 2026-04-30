@@ -4,6 +4,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from '@/components/ArticleJsonLd';
 import { ArticleToc } from '@/components/ArticleToc';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { FotostranaCta } from '@/components/FotostranaCta';
+import { ShareBlock } from '@/components/ShareBlock';
 import {
   getAllSlugsAsync,
   getArticleBySlugAsync,
@@ -107,6 +108,12 @@ export default async function SonnikArticlePage({ params }: Props) {
           { label: article.title },
         ]}
       />
+      <div className="page-inline-share">
+        <ShareBlock
+          title={article.title}
+          sharePath={`/sonnik/${article.slug}`}
+        />
+      </div>
       <div className="article-layout">
         <ArticleBody article={article} />
         <div className="article-toc-wrap">

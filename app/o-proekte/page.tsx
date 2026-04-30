@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+import { FotostranaCta } from '@/components/FotostranaCta';
+import { ShareBlock } from '@/components/ShareBlock';
+
+import { getFotostranaMainUrl } from '@/lib/site-config';
+
 export const metadata: Metadata = {
   title: 'О проекте',
   description:
@@ -8,9 +13,25 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const fsUrl = getFotostranaMainUrl();
   return (
     <main className="shell page-block">
       <h1 className="page-title">О проекте</h1>
+      <div className="about-actions">
+        <a
+          className="btn btn-primary"
+          href={fsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Вернуться в Фотострану
+        </a>
+        <ShareBlock
+          variant="default"
+          sharePath="/o-proekte"
+          title="Сонник Фотостраны — о проекте"
+        />
+      </div>
       <div className="prose-plain">
         <p>
           Этот раздел — справочник по образам снов. Тексты создаются для
@@ -24,7 +45,7 @@ export default function AboutPage() {
         </p>
         <p>
           Проект связан с экосистемой{' '}
-          <a href="https://www.fotostrana.ru" rel="noopener">
+          <a href={fsUrl} target="_blank" rel="noopener noreferrer">
             Фотостраны
           </a>
           : мы приглашаем обсуждать сны с друзьями в привычной соцсети.
@@ -33,6 +54,7 @@ export default function AboutPage() {
           <Link href="/sonnik">К каталогу символов</Link>
         </p>
       </div>
+      <FotostranaCta />
     </main>
   );
 }

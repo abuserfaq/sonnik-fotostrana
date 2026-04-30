@@ -1,7 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { ShareBlock } from '@/components/ShareBlock';
+
+import { getFotostranaMainUrl } from '@/lib/site-config';
+
 export function HomeHero() {
+  const fsUrl = getFotostranaMainUrl();
   return (
     <section className="hero" aria-label="Введение">
       <div className="hero-media">
@@ -32,6 +37,17 @@ export function HomeHero() {
           <Link href="/o-proekte" className="btn btn-ghost">
             Как устроен сонник
           </Link>
+          <a
+            className="btn btn-ghost"
+            href={fsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Вернуться в Фотострану
+          </a>
+        </div>
+        <div className="hero-share-row">
+          <ShareBlock variant="default" sharePath="/" title="Сонник Фотостраны" />
         </div>
       </div>
     </section>

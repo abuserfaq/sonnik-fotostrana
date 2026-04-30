@@ -105,20 +105,21 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 20;
-  height: var(--header-h);
+  min-height: var(--header-h);
   border-bottom: 1px solid var(--stroke);
   background: rgba(12, 14, 18, 0.88);
   backdrop-filter: blur(10px);
 }
 
 .site-header-inner {
-  max-width: min(72rem, 100% - 2rem);
+  max-width: min(72rem, 100% - 1.5rem);
   margin: 0 auto;
-  height: 100%;
+  min-height: var(--header-h);
+  padding: 0.45rem 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 0.25rem;
+  gap: 0.6rem 1rem;
 }
 
 .site-brand {
@@ -156,6 +157,67 @@ a:hover {
 
 .site-nav a:hover {
   color: var(--text);
+}
+
+.site-header-extras {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: auto;
+}
+
+.site-fs-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.65rem;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  border: 1px solid var(--stroke-strong);
+  border-radius: 2px;
+  text-decoration: none;
+  transition:
+    border-color 0.2s var(--ease-out),
+    color 0.2s var(--ease-out);
+}
+
+.site-fs-back:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+
+.site-fs-back--footer {
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  width: fit-content;
+  max-width: 100%;
+}
+
+@media (max-width: 720px) {
+  .site-header-inner .site-nav {
+    flex: 1 1 100%;
+    order: 3;
+    gap: 1rem 1.25rem;
+    justify-content: flex-start;
+    padding-top: 0.55rem;
+    border-top: 1px solid var(--stroke);
+  }
+
+  .site-header-extras {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    order: 2;
+    margin-left: 0;
+    gap: 0.45rem;
+  }
+
+  .site-fs-back {
+    font-size: 0.78rem;
+    padding: 0.42rem 0.62rem;
+  }
 }
 
 /* — Hero — */
@@ -673,4 +735,129 @@ a:hover {
 
 .prose-plain p:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 420px) {
+  .shell {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .shell-wide {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.hero-share-row {
+  margin-top: 1rem;
+}
+
+.page-inline-share {
+  margin: -0.25rem 0 1.35rem;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-actions .btn-primary {
+  min-height: 2.65rem;
+}
+
+.site-footer-share {
+  margin-top: 0.5rem;
+}
+
+.share-block-label {
+  margin: 0 0 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.share-block-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.45rem;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.65rem;
+  min-width: 2.65rem;
+  padding: 0.4rem 0.72rem;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg-elevated);
+  border: 1px solid var(--stroke-strong);
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    border-color 0.2s var(--ease-out),
+    color 0.2s var(--ease-out);
+}
+
+a.share-btn:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+
+button.share-btn:hover {
+  border-color: var(--accent-dim);
+  color: var(--accent);
+}
+
+.share-block--compact .share-block-actions {
+  gap: 0.35rem;
+}
+
+.share-block--compact .share-btn {
+  min-height: 2.4rem;
+  min-width: 2.4rem;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 560px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-actions .share-block {
+    width: 100%;
+  }
+
+  .about-actions .share-block-actions {
+    justify-content: flex-start;
+  }
+
+  .admin-row .btn-primary,
+  .admin-row .btn-ghost {
+    flex: 1 1 calc(50% - 0.25rem);
+    min-height: 2.65rem;
+  }
 }

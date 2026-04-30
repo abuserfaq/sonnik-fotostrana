@@ -1,3 +1,5 @@
+import { AdminOutboundBar } from '@/components/admin/AdminOutboundBar';
+
 import '@/app/admin/admin.css';
 
 export default function AdminRootLayout({
@@ -5,6 +7,7 @@ export default function AdminRootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div className="admin-root">
+      <AdminOutboundBar />
       {children}
     </div>
   );

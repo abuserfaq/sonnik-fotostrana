@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { SiteFooter } from '@/components/SiteFooter';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteJsonLd } from '@/components/SiteJsonLd';
@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     siteName,
   },
   robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#0c0e12',
 };
 
 export default function RootLayout({

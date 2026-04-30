@@ -152,3 +152,83 @@ button.btn-ghost {
   color: var(--accent-dim);
   font-weight: 700;
 }
+
+.admin-outbound-wrap {
+  border-bottom: 1px solid var(--stroke);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.65rem;
+}
+
+.admin-outbound {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+  padding-top: 0.25rem;
+}
+
+.btn-admin-fs {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.65rem;
+  padding: 0.5rem 0.9rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--accent-dim);
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn-admin-fs:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-admin-mini {
+  font-size: 0.82rem;
+  padding: 0.45rem 0.75rem;
+  min-height: 2.65rem;
+}
+
+@media (max-width: 520px) {
+  .admin-outbound {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-outbound .btn-admin-fs,
+  .admin-outbound .btn-admin-mini,
+  .admin-outbound .share-block--compact {
+    width: 100%;
+  }
+
+  .admin-outbound .share-block-actions {
+    justify-content: center;
+  }
+
+  .admin-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .admin-actions .btn,
+  .admin-actions a.btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 2.65rem;
+  }
+}

@@ -1,7 +1,12 @@
 import Link from 'next/link';
 
+import { ShareBlock } from '@/components/ShareBlock';
+
+import { getFotostranaMainUrl } from '@/lib/site-config';
+
 export function SiteFooter() {
   const year = new Date().getFullYear();
+  const fsUrl = getFotostranaMainUrl();
   return (
     <footer className="site-footer">
       <div className="shell site-footer-inner">
@@ -11,6 +16,15 @@ export function SiteFooter() {
             Толкования носят ознакомительный характер и не заменяют помощь
             специалиста.
           </p>
+          <a
+            className="site-fs-back site-fs-back--footer"
+            href={fsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Вернуться в Фотострану
+          </a>
+          <ShareBlock variant="default" className="site-footer-share" />
         </div>
         <div className="site-footer-col site-footer-links">
           <Link href="/">Главная</Link>

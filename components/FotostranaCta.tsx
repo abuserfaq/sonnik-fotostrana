@@ -1,7 +1,7 @@
-const defaultHref =
-  process.env.NEXT_PUBLIC_FS_CTA_URL ?? 'https://www.fotostrana.ru';
+import { getFotostranaMainUrl } from '@/lib/site-config';
 
 export function FotostranaCta() {
+  const href = getFotostranaMainUrl();
   return (
     <aside className="cta" aria-label="Приглашение на Фотострану">
       <h2 className="cta-title">Расскажи сон другу</h2>
@@ -9,8 +9,13 @@ export function FotostranaCta() {
         Обсуди сон в привычном кругу — найди друзей и единомышленников на{' '}
         <strong>Фотостране</strong>.
       </p>
-      <a className="cta-button" href={defaultHref} rel="noopener">
-        Перейти на Фотострану
+      <a
+        className="cta-button"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Вернуться в Фотострану
       </a>
     </aside>
   );
