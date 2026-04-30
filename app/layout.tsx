@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { SiteFooter } from '@/components/SiteFooter';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteJsonLd } from '@/components/SiteJsonLd';
+import { YandexMetrika } from '@/components/YandexMetrika';
 import { fontDisplay, fontSans } from './fonts';
 import './globals.css';
 
@@ -39,6 +40,7 @@ export default function RootLayout({
         <SiteHeader siteName={siteName} />
         <div className="layout-main">{children}</div>
         <SiteFooter />
+        <YandexMetrika />
       </body>
     </html>
   );
