@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getAllSlugs } from '@/lib/content';
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sonnik-fotostrana1.vercel.app';
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sonnik.fotostrana.ru';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastMod = new Date();

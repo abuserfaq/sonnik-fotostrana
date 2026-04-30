@@ -17,6 +17,9 @@ npm run dev
 
 ## Деплой на Vercel
 
+- Прод-домен: **`https://sonnik.fotostrana.ru`** (в Vercel → Domains: привязать субдомен, DNS — CNAME на Vercel).
+- **`NEXT_PUBLIC_SITE_URL`** в Environment Variables должен быть `https://sonnik.fotostrana.ru`.
+
 - **Root Directory**: корень этого репозитория (не подпапка).
 - Задайте те же переменные, что в `.env.example`, в разделе Environment Variables проекта.
 
