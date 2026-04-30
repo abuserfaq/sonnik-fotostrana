@@ -202,6 +202,9 @@ export function ArticleEditor(props: Props) {
           <Link className="btn btn-ghost" href="/admin">
             К списку
           </Link>
+          <Link className="btn btn-ghost" href="/admin/articles/bulk">
+            Пакет из ключевиков
+          </Link>
           <AdminLogoutButton />
         </div>
       </div>

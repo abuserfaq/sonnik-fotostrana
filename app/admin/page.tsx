@@ -18,6 +18,9 @@ export default async function AdminHomePage() {
           <Link className="btn btn-primary" href="/admin/articles/new">
             Новая статья
           </Link>
+          <Link className="btn btn-ghost" href="/admin/articles/bulk">
+            Пакет из ключевиков
+          </Link>
           <AdminLogoutButton />
         </div>
       </div>

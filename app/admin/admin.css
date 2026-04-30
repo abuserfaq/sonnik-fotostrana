@@ -121,3 +121,34 @@
 button.btn-ghost {
   font: inherit;
 }
+
+.admin-bulk-log {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.admin-bulk-log li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--stroke);
+  font-size: 0.9rem;
+}
+
+.admin-bulk-ok {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.admin-bulk-skip {
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.admin-bulk-err {
+  color: var(--accent-dim);
+  font-weight: 700;
+}
