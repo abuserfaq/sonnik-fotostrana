@@ -1,11 +1,17 @@
 import path from 'path';
 import type { NextConfig } from 'next';
 
+const tracingRoot =
+  process.env.VERCEL || process.env.VERCEL_ENV
+    ? undefined
+    : path.join(__dirname);
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  // Репозиторий с двумя package-lock: фиксируем корень трейсинга на это приложение
-  outputFileTracingRoot: path.join(__dirname),
+  ...(tracingRoot !== undefined && {
+    outputFileTracingRoot: tracingRoot,
+  }),
   headers: async () => [
     {
       source: '/:path*',
