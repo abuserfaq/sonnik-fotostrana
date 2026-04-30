@@ -1,4 +1,4 @@
-import type { SonnikArticle } from '@/lib/content';
+import type { SonnikArticle } from '@/lib/article-types';
 
 /**
  * Дополняет ручные `article.keywords` типовыми поисковыми формулировками (рунет, сонники).

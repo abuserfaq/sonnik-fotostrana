@@ -5,8 +5,8 @@ import { ArticleToc } from '@/components/ArticleToc';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { FotostranaCta } from '@/components/FotostranaCta';
 import {
-  getAllSlugs,
-  getArticleBySlug,
+  getAllSlugsAsync,
+  getArticleBySlugAsync,
   type SonnikArticle,
 } from '@/lib/content';
 import { buildSearchKeywords } from '@/lib/keywords';
@@ -22,12 +22,13 @@ const publisherUrl =
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  const slugs = await getAllSlugsAsync();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await getArticleBySlugAsync(slug);
   if (!article) {
     return { title: 'Не найдено' };
   }
@@ -79,7 +80,7 @@ function ArticleBody({ article }: { article: SonnikArticle }) {
 
 export default async function SonnikArticlePage({ params }: Props) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await getArticleBySlugAsync(slug);
   if (!article) notFound();
 
   return (

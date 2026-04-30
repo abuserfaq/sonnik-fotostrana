@@ -1,4 +1,4 @@
-import type { SonnikArticle } from '@/lib/content';
+import type { SonnikArticle } from '@/lib/article-types';
 import { buildSearchKeywords } from '@/lib/keywords';
 
 type Props = {

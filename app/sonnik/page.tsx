@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { FotostranaCta } from '@/components/FotostranaCta';
 import { SymbolSearch } from '@/components/SymbolSearch';
-import { getAllArticles } from '@/lib/content';
+import { loadArticles } from '@/lib/content';
 
 export const metadata: Metadata = {
   title: 'Все символы',
@@ -9,8 +9,9 @@ export const metadata: Metadata = {
     'Алфавитный список символов сонника: вода, бывший, змея и другие. Поиск по названию.',
 };
 
-export default function SonnikIndexPage() {
-  const sorted = [...getAllArticles()].sort((a, b) =>
+export default async function SonnikIndexPage() {
+  const all = await loadArticles();
+  const sorted = [...all].sort((a, b) =>
     a.title.localeCompare(b.title, 'ru'),
   );
 
