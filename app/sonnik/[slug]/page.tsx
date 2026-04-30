@@ -11,7 +11,7 @@ import {
 } from '@/lib/content';
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sonnik.example.com';
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sonnik-fotostrana1.vercel.app';
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? 'Сонник';
 const publisherName =
   process.env.NEXT_PUBLIC_PUBLISHER_NAME ?? 'Фотострана';
