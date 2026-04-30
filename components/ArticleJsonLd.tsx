@@ -1,4 +1,5 @@
 import type { SonnikArticle } from '@/lib/content';
+import { buildSearchKeywords } from '@/lib/keywords';
 
 type Props = {
   article: SonnikArticle;
@@ -37,7 +38,7 @@ export function ArticleJsonLd({
       '@type': 'WebPage',
       '@id': url,
     },
-    keywords: article.keywords.join(', '),
+    keywords: buildSearchKeywords(article).join(', '),
     inLanguage: 'ru-RU',
     isPartOf: {
       '@type': 'WebSite',

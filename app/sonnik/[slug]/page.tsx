@@ -9,6 +9,7 @@ import {
   getArticleBySlug,
   type SonnikArticle,
 } from '@/lib/content';
+import { buildSearchKeywords } from '@/lib/keywords';
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sonnik.fotostrana.ru';
@@ -33,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: article.title,
     description: article.description,
+    keywords: buildSearchKeywords(article),
     alternates: { canonical: `/sonnik/${article.slug}` },
     openGraph: {
       title: article.title,

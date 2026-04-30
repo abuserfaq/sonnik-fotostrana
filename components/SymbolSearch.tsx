@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import type { SonnikArticle } from '@/lib/content';
+import { buildSearchKeywords } from '@/lib/keywords';
 
 type Props = { articles: SonnikArticle[] };
 
@@ -13,7 +14,7 @@ export function SymbolSearch({ articles }: Props) {
   const filtered = useMemo(() => {
     if (!normalized) return articles;
     return articles.filter((a) => {
-      const hay = `${a.title} ${a.keywords.join(' ')}`.toLowerCase();
+      const hay = `${a.title} ${buildSearchKeywords(a).join(' ')}`.toLowerCase();
       return hay.includes(normalized);
     });
   }, [articles, normalized]);
